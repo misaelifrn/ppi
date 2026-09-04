@@ -1,0 +1,13 @@
+mysql -u root 
+show databases; 
+
+create DATABASE todo_list;
+
+use todo_list;  
+
+Create table tarefas (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ descricao VARCHAR(255) NOT NULL,
+ concluida TINYINT(1) DEFAULT 0, 
+ data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
