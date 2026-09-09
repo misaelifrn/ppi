@@ -15,12 +15,29 @@ if($conn->connect_error) {
 
 # criacao de tarefas
 
+if(isset($_POST['descricao']) && !empty(trim($_POST['descricao']))) {
+    $descricao = $conn -> real_escape_string($_POST['descricao']);
+    $sqlCreate = "INSERT INTO tarefas (descricao) VALUES ('$descricao')";
+
+    if($conn -> query($sqlCreate) == TRUE) {
+        header("location: todo-list2.php");
+    }
+}
+
 # Exclusão de tarefas
 
 
 $tarefas=[]; 
 # Listar tarefas
 
+$sqlSelect = "SELECT * FROM tarefas ORDER BY data_criacao DESC";
+$resultados = $conn -> query($sqlSelect);
+
+if($resultados -> num_rows > 0) {
+    while($row = $resultados->fetch_assoc()) {
+        $tarefas[] = $row;
+    }
+}
 
 ?>
 
@@ -42,7 +59,11 @@ $tarefas=[];
     <?php if(!empty($tarefas)):?>
         <h2>Suas tarefas</h2>
         <ul> 
-            <li>Tenho uma tarefa</li>
+            <?php foreach($tarefas as $tarefa): ?>
+            <li>
+                <?php echo $tarefa['descricao']?>
+            </li>
+            <?php endforeach ?>
         </ul>
     <?php else: ?>
     <h3>Não tem tarefas</h3>
