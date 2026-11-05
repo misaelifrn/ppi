@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/app/controller/usuarioController.php';
+require_once __DIR__.'/app/controller/usuarioController.php';
 $controller = new UsuarioController();
 $action = $_GET['action'] ?? 'index';
 switch($action){
@@ -21,34 +21,3 @@ switch($action){
         break;
 }
 ?>
-
-
-
-
-
-<!-- 
-<?php 
-
-require_once __DIR__ . '/app/controller/controller.php';
-
-$controller = new tarefaController();
-
-
-$action = $_GET['action'] ?? 'index';
-
-switch($action) {
-    case 'criar':
-        $controller->criar();
-        break;
-    case 'excluir':
-        $controller->excluir();
-        break;
-    case 'editar':
-        $controller->editar();
-        break;
-    default:
-        $controller->index();
-        break;
-}
-
-?> -->

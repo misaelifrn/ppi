@@ -23,7 +23,7 @@ CREATE TABLE tarefas(
 );
 
 INSERT INTO usuarios (nome, email, senha) VALUES 
-('José', 'jose@gmail.com', '$2y$10$.LzF.YIR/vfvvEso.d/k9uc2DNHAVYn.ilxhpU.kvdWoM4WfeK92.');
+('João', 'joao@teste.com', '$2y$10$osVIO4cPLWwZ5ozihmJccu0r1x/iXohecRnXkMDr.9M4m9oP7e8xe');
 
 INSERT INTO tarefas (id_usuarios, descricao, concluida, data_criacao) VALUES
 (1, 'Jayane é chata. Cortar amizade.', null, '2026-02-11');
@@ -32,3 +32,4 @@ SELECT * FROM usuarios WHERE id_usuarios = 1;
 
 SELECT * FROM tarefas WHERE id_tarefas = 1;
 
+-- php -r "echo password_hash('123', PASSWORD_DEFAULT), PHP_EOL;"
