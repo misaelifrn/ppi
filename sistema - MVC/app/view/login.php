@@ -17,7 +17,7 @@
     <form action="index.php?action=autenticar" method="POST" class="form-login">
         <h1>Acesse sua conta</h1>
 
-        <div class="p-login">
+        <div class="p-login" style="margin-top: 80px;">
             <label>E-mail</label>
             <input type="email" name="email">
         </div>
