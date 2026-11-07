@@ -1,23 +1,42 @@
 <?php
+
 session_start();
+
 require_once __DIR__.'/app/controller/usuarioController.php';
-$controller = new UsuarioController();
+require_once __DIR__.'/app/controller/tarefaController.php';
+
+$usuarioController = new UsuarioController();
+$tarefaController = new tarefaController();
+
 $action = $_GET['action'] ?? 'index';
 switch($action){
     case 'autenticar':
-        $controller->autenticar();
+        $usuarioController->autenticar();
         break;
 
     case 'painel':
-        $controller->painel();
+        $usuarioController->painel();
         break;
 
     case 'logout':
-        $controller->logout();
+        $usuarioController->logout();
+        break;
+
+    case 'criar':
+        $tarefaController->criar();
+        break;
+
+    case 'excluir':
+        $tarefaController->excluir();
+        break;
+
+    case 'editar':
+        $tarefaController->editar();
         break;
 
     default:
-        $controller->index();
+        $usuarioController->index();
+        // $tarefaController->index();
         break;
 }
 ?>

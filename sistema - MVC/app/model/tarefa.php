@@ -12,9 +12,10 @@
 
         # Listar
 
-        public function listar() {
+        public function listar($id_usuario) {
             $tarefas = [];
-            $sql = "SELECT * FROM tarefas ORDER BY data_criacao DESC";
+            $id = intval($id_usuario);
+            $sql = "SELECT * FROM tarefas WHERE id_usuario = '$id' ORDER BY data_criacao DESC";
             $resultado = $this->conn->query($sql);
 
             if($resultado->num_rows > 0) {
@@ -28,27 +29,30 @@
 
         # Criar
 
-        public function criar($descricao) {
+        public function criar($id_usuario, $descricao) {
+            $id = intval($id_usuario);
             $descricao = $this->conn->real_escape_string($descricao);
-            $sql = "INSERT INTO tarefas (descricao) VALUES ('$descricao')";
+            $sql = "INSERT INTO tarefas (id_usuario, descricao) VALUES ('$id', '$descricao')";
             
             return $this->conn->query($sql);
         }
 
         # Excluir
 
-        public function excluir($id) {
-            $id = intval($id);
-            $sql = "DELETE FROM tarefas WHERE id = $id";
+        public function excluir($id_tarefa, $id_usuario) {
+            $id_tarefa = intval($id_tarefa);
+            $id_usuario = intval($id_usuario);
+            $sql = "DELETE FROM tarefas WHERE id_tarefa = $id_tarefa AND id_usuario = $id_usuario";
             return $this->conn->query($sql);
         }
 
         # Editar
 
-        public function editar($descricao, $id) {
+        public function editar($id_tarefa, $id_usuario, $descricao) {
+            $id_tarefa = intval($id_tarefa);
+            $id_usuario = intval($id_usuario);
             $descricao = $this->conn->real_escape_string($descricao);
-            $id = intval($id);
-            $sql = "UPDATE tarefas SET descricao = '$descricao' WHERE id = '$id'";
+            $sql = "UPDATE tarefas SET descricao = '$descricao' WHERE id_tarefa = '$id_tarefa' AND id_usuario = '$id_usuario'";
             return $this->conn->query($sql);
         }
 
