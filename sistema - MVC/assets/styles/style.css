@@ -148,9 +148,9 @@ h1 {
     transition: all 0.15s ease-out;
 }
 
-.modal-conteudo:hover {
-    cursor: url('/../assets/images/cursor.svg');
-}
+/* .modal-conteudo:hover {
+    cursor: url('/../assets/images/cursor.svg'), auto;
+} */
 
 .modal-conteudo h2 {
     margin-bottom: 20px;

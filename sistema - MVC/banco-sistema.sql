@@ -28,6 +28,9 @@ INSERT INTO usuarios (nome, email, senha) VALUES
 INSERT INTO usuarios (nome, email, senha) VALUES 
 ('Pedro', 'pedro@gmail.com', '$2y$10$osVIO4cPLWwZ5ozihmJccu0r1x/iXohecRnXkMDr.9M4m9oP7e8xe');
 
+INSERT INTO usuarios (nome, email, senha) VALUES 
+('José', 'jose@gmail.com', '$2y$10$osVIO4cPLWwZ5ozihmJccu0r1x/iXohecRnXkMDr.9M4m9oP7e8xe');
+
 INSERT INTO tarefas (id_usuario, descricao, concluida, data_criacao) VALUES
 (1, 'Terminar trabalho de PPI', null, '2026-02-11');
 
