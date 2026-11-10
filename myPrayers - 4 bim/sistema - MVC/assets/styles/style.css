@@ -1,0 +1,374 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #3e3e3e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+}
+
+.title {
+    position: absolute;
+    top: 20px;
+}
+
+.form-login {
+    background-color: rgb(75, 75, 75, 0.8);
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    height: 500px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.form-login h1 {
+    position: absolute;
+    top: 50px;
+}
+
+.p-login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.p-login label {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.p-login input {
+    height: 40px;
+    width: 350px;
+    padding: 0px 10px;
+    background-color: #3e3e3e;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    color: rgb(255, 255, 255);
+}
+
+.senha-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.senha-box-input {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.senha-box-input input {
+    height: 40px;
+    width: 350px;
+    padding: 0px 10px;
+    background-color: #3e3e3e;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    color: rgb(255, 255, 255);
+    position: relative;
+}
+
+.olho-login {
+    display: none;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    right: 85px;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.form-login p button {
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 50px;
+    padding: 10px 30px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    color: #3e3e3e;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.form-login p button:hover {
+    opacity: 0.8;
+}
+
+.modal {
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1.5px);
+    z-index: 11;
+    transition: all 0.15s ease-out;
+}
+
+.modal-conteudo {
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    flex-direction: column;
+    background-color: white;
+    height: 250px;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 12;
+    position: fixed;
+    transition: all 0.15s ease-out;
+}
+
+/* .modal-conteudo:hover {
+    cursor: url('/../assets/images/cursor.svg'), auto;
+} */
+
+.modal-conteudo h2 {
+    margin-bottom: 20px;
+}
+
+.modal-conteudo form {
+    height: 80%;
+    position: relative;
+}
+
+.modal-conteudo form .input-desc-editar {
+    width: 100%;
+    height: 75%;
+    padding: 5px;
+}
+
+.modal-conteudo form .actions-editar {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.modal-conteudo form .actions-editar button {
+    background-color: #3e3e3e;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.modal-conteudo form .actions-editar .btn-salvar-editar:hover {
+    opacity: 0.8;
+    background-color: green;
+    border: 1px solid white;
+}
+
+.modal-conteudo form .actions-editar .btn-cancelar-editar:hover {
+    opacity: 0.8;
+    background-color: red;
+    border: 1px solid white;
+}
+
+.welcome {
+    position: absolute;
+    top: 60px;
+}
+
+.logout-btn a {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    background-color: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+}
+
+.logout-btn a:hover {
+    opacity: 0.8;
+}
+
+.box-painel {
+    background-color: rgb(75, 75, 75, 0.8);
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    min-height: 500px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.box-painel form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* gap: 3px; */
+    height: 40px;
+    width: 79.9%;
+    position: fixed;
+    bottom: 116px;
+    border-top: 1px solid rgb(255, 255, 255, 0.3);
+    box-shadow: 0px -5px 50px rgb(0, 0, 0, 0.9);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 10;
+}
+
+.box-painel form input {
+    height: 40px;
+    width: 100%;
+    padding: 0px 10px;
+    background-color: #3e3e3e;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    border-bottom-left-radius: 20px;
+}
+
+.box-painel form input::placeholder {
+    color: rgb(255, 255, 255, 0.3);
+    font-style: italic;;
+}
+
+.box-painel form button {
+    cursor: pointer;
+    font-size: 16px;
+    height: 40px;
+    width: 10%;    
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    outline: none;
+    color: #3e3e3e;
+    font-weight: bold;
+    transition: all 0.3s;
+    border-bottom-right-radius: 20px;
+}
+
+.box-painel form button:hover {
+    opacity: 0.8;
+}
+
+ul {
+    list-style: none;
+    position: absolute;
+    top: 0px;
+    height: 92%;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+ul li {
+    color: white;
+    padding-left: 10px;
+    width: 100%;
+    background-color: #3e3e3e;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.suas-tarefas {
+    color: rgb(255, 255, 255);
+    /* position: absolute;
+    top: 60px; */
+}
+
+.sem-tarefas {
+    color: rgb(255, 255, 255);
+    font-style: italic;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.editar-btn {
+    background-color: transparent;
+    border: none;
+    padding: 10px 15px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 18px;
+    border-left: 1px solid rgb(255, 255, 255, 0.3);
+    transition: all 0.3s;
+}
+
+.editar-btn:hover {
+    opacity: 0.8;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+.excluir-btn {
+    text-decoration: none;
+    padding: 10px 14.5px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 18px;
+    border-left: 1px solid rgb(255, 255, 255, 0.3);
+    margin-left: 1px;
+    transition: all 0.3s;
+}
+
+.excluir-btn:hover {
+    opacity: 0.8;
+    background-color: red;
+}
+
+.message {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(75, 75, 75, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+.ponto-e-virgula {
+    font-size: 24px;
+    margin: 0px 2px;
+}
