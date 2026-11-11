@@ -32,7 +32,8 @@ class UsuarioController{
 
         if(empty($email) || empty($senha)){
             $erro = "Preencha seu email e senha";
-            // include __DIR__ . "/../view/login.php";
+            include __DIR__ . "/../view/login.php";
+            exit;
         }
 
         $usuario = $this->usuarioModel->buscarPorEmail($email);
