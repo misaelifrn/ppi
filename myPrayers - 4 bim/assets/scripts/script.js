@@ -87,11 +87,11 @@ audioBtn.addEventListener("click", function () {
         audioMessage.style.visibility = "visible";
         audioMessage.style.pointerEvents = "auto";
 
-        timeoutMessage = setTimeout(() => {
-            audioMessage.style.opacity = 0;
-            audioMessage.style.visibility = "hidden";
-            audioMessage.style.pointerEvents = "none";
-        }, 7500);
+        // timeoutMessage = setTimeout(() => {
+        //     audioMessage.style.opacity = 0;
+        //     audioMessage.style.visibility = "hidden";
+        //     audioMessage.style.pointerEvents = "none";
+        // }, 7500);
     } else {
         videoBg.pause();
         audio.pause();
@@ -106,6 +106,17 @@ audio.addEventListener("ended", function () {
     imgAudioBtn.src = "/../assets/images/icons/play.svg";
 
     videoBg.pause();
+})
+
+let audioMessageImg = document.getElementById("audioMessageImg");
+audioMessageImg.addEventListener("click", function () {
+    if (audio.volume == 1) {
+        audioMessageImg.src = "/../assets/images/icons/no&audio.svg";
+        audio.volume = 0;
+    } else {
+        audioMessageImg.src = "/../assets/images/icons/audio.svg";
+        audio.volume = 1;
+    }
 })
 
 function gerarNumRandom() {

@@ -11,12 +11,17 @@
             $this->conn = $db->conectar();
         }
 
-        // ------------- CRIPTOGRAFAR A SENHA -------------
         public function create($name, $email, $password) {
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO user (name, email, password) VALUES (?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("sss", $name, $email, $password);
-            return $stmt->execute();
+            $stmt->bind_param("sss", $name, $email, $passwordHash);
+
+            if ($stmt->execute()) {
+                return $this->conn->insert_id; // recupera o ID gerado pelo database
+            }
+
+            return false;
         }
 
         // ------------- ADMIN FUNCTION -------------
@@ -42,24 +47,30 @@
 
         // ------------- CRIPTOGRAFAR A SENHA -------------
         public function update($id_user, $name, $email, $password) {
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "UPDATE user SET name = ?, email = ?, password = ? WHERE id_user = ?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("sssi", $id_user, $name, $email, $password);
+            $stmt->bind_param("sssi", $id_user, $name, $email, $passwordHash);
             return $stmt->execute();
         }
 
         // ------------- DELETAR AS ORAÇÕES DO USUÁRIO REFERIDO  -------------
-        // public function delete($id_user) {
-        //     $sql = "DELETE FROM user WHERE id_user = ?";
-        //     $stmt = $this->conn->prepare($sql);
-        //     $stmt->bind_param("i", $id_user);
-            
-        //     $sqlDeleteOracoes = "DELETE FROM oracao WHERE id_user = ?";
-        //     $stmt2 = $this->conn->prepare($sqlDeleteOracoes);
-        //     $stmt2->bind_param("i", $id_user);
-        //     return $stmt->execute(), $stmt2->execute();
+        public function delete($id_user) {
+            $sqlDeleteOracoes = "DELETE FROM oracao WHERE id_user = ?";
+            $stmt = $this->conn->prepare($sqlDeleteOracoes);
+            $stmt->bind_param("i", $id_user);
 
-        // }
+            if (!$stmt->execute()) {
+                return false;
+            }
+
+            $sql = "DELETE FROM user WHERE id_user = ?";
+            $stmt2 = $this->conn->prepare($sql);
+            $stmt2->bind_param("i", $id_user);
+
+            return $stmt2->execute();
+
+        }
 
     }
 

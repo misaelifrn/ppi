@@ -14,9 +14,16 @@
         case 'authenticate':
             $userController->authenticate();
             break;
+        case 'register':
+            $userController->register();
+            break;
 
         case 'dashboard':
             $userController->dashboard();
+            break;
+
+        case 'delete':
+            $userController->delete();
             break;
 
         case 'logout':
