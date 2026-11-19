@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <path fill="#000" d="
+    M24 4 H104 V6 H108 V10 H110 V118 H126 V122 H128 V124 H126 V126 H2 V124 H0 V122 H2 V118 H18 V10 H20 V6 H24 Z
+    M24 12 V118 H104 V12 Z
+  "></path>
+
+  <!-- Maçaneta -->
+  <rect x="80" y="61" width="12" height="6" fill="#000"></rect>
+
+  <!-- Seta pixelada -->
+  <path fill="#000" d="
+    M2 79 H14 V67 H26 V55 H38 V67 H30 V75 H50 V91 H30 V99 H38 V111 H26 V99 H14 V91 H2 Z
+  "></path>
+</svg>

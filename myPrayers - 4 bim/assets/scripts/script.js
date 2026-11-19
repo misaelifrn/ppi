@@ -122,3 +122,5 @@ audioMessageImg.addEventListener("click", function () {
 function gerarNumRandom() {
     return Math.floor(Math.random() * 10);
 }
+
+// ---------------- ao mudar de pagina a musica toca -------------------

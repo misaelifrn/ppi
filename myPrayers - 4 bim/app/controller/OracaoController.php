@@ -10,7 +10,7 @@
             $this->oracaoModel = new Oracao();
         }
 
-        public function create() {
+        public function create() { //  && !empty(trim($_POST['title'])) && !empty(trim($_POST['body']))
             if (isset($_SESSION['id_user']) && isset($_POST['title']) && isset($_POST['body']) && !empty(trim($_POST['title'])) && !empty(trim($_POST['body']))) {
                 $this->oracaoModel->create($_SESSION['id_user'], $_POST['title'], $_POST['body']);
             }

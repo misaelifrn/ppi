@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+15&family=Momo+Trust+Display&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Redaction+35:ital,wght@0,400;0,700;1,400&family=Redaction+50:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap'); /* Momo Trust Display, Redaction 35, Redaction 50, Poppins, Pixelify Sans, Silkscreen, Jersey 10, Jersey 15 */
+
+@keyframes pulsar {
+    0% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes pulsar2 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* transition: all 0.3s; */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.3);
+    background-image: url('/assets/images/jesus&cristo&triste.avif');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.my-prayers-title-login {
+    font-weight: 200;
+    font-family: "Pixelify Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: fixed;
+    left: 15px;
+    top: 10px;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+}
+
+.welcome {
+    color: white;
+    text-shadow: 0px 0px 5px black;
+    font-size: 24px;
+    text-align: center;
+    position: absolute;
+    top: 15px;
+    font-family: "Redaction 50", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.add-oracao-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7.5px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-image: url('/assets/images/icons/background&btn&pixel&512x512.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    animation: pulsar2 0.8s steps(1) infinite;
+}
+
+.add-oracao-btn img {
+    filter: invert(1);
+    height: 30px;
+    width: 30px;
+}
+
+.add-oracao-btn:hover {
+    animation-play-state: paused;
+    opacity: 0.8;
+}
+
+.bg-dark {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* opacity: 1;
+    visibility: visible;
+    pointer-events: auto; */
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.6);
+}
+
+.form-oracao {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* opacity: 1;
+    visibility: visible;
+    pointer-events: auto; */
+
+    z-index: 2;
+    /* position: relative; */
+    position: fixed;
+    height: 80%;
+    width: 80%;
+    padding: 20px;
+    background-color: rgb(255, 255, 255, 0.3);
+
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-direction: column;
+    gap: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    background-image: url('/assets/images/papa&leao&rezando.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.5);
+}
+
+.form-oracao .container-oracao {
+    height: 100%;
+    padding: 15px;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 1px solid rgb(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.form-oracao .container-oracao .box-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-oracao .container-oracao .box-input label {
+    font-size: 18px;
+    color: white;
+    font-family: "Redaction 50", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form-oracao .container-oracao .title-oracao input {
+    height: 40px;
+    padding: 0px 10px;
+    font-family: "Pixelify Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    /* background-color: rgb(0, 0, 0, 0.6); */
+    outline: none;
+    color: white;
+    background-color: transparent; 
+    border: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.form-oracao .container-oracao .body-oracao {
+    height: 75%;
+    margin-top: 10px;
+}
+
+.form-oracao .container-oracao .body-oracao textarea {
+    height: 100%;
+    padding: 5px 10px;
+    font-family: "Pixelify Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    /* background-color: rgb(0, 0, 0, 0.6); */
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.form-oracao .container-oracao .buttons-add-oracao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    position: absolute;
+    right: 7.5px;
+    bottom: 5px;
+    padding: 5px;
+}
+
+.form-oracao .container-oracao .buttons-add-oracao button {
+    font-family: "Redaction 35", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    padding: 5px 10px 3px 10px;
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    /* background-image: url('/assets/images/icons/background&btn&pixel&1024x512.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 70px; */
+}
+
+.form-oracao .container-oracao .buttons-add-oracao .add-oracao {
+    background-color: green;
+    border-bottom: 2px solid rgb(0, 0, 0, 0.3);
+}
+
+.form-oracao .container-oracao .buttons-add-oracao .cancelar-add-oracao {
+    background-color: red;
+    border-bottom: 2px solid rgb(0, 0, 0, 0.3);
+}
+
+.form-oracao .container-oracao .buttons-add-oracao button:hover {
+    opacity: 0.8;
+    animation: pulsar2 1s steps(1) infinite;
+}
+
+.box-dashboard {
+    margin-top: 50px;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 1px solid rgb(255, 255, 255, 0.5);
+    height: 80%;
+    width: 90%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.box-dashboard ul {
+    list-style: none;
+    width: 100%;
+}
+
+.box-dashboard ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 5px 10px;
+    border-bottom: 2px dotted rgb(255, 255, 255, 0.5);
+}
+
+.box-dashboard ul li .oracao-infor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.box-dashboard ul li .oracao-infor .p-oracao {
+    color: white;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.box-dashboard ul li .oracao-infor .p-title-oracao {
+    border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+    /* padding-bottom: 5px; */
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.box-dashboard ul li .oracao-infor .p-body-oracao {
+    white-space: pre-line; /* preserva as quebras de linha digitadas */
+}
+
+.box-dashboard .actions {
+    display: flex;
+    flex-direction: row;
+    /* position: absolute;
+    top: 2px;
+    right: 10px; */
+}
+
+.box-dashboard .actions .editar-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.box-dashboard .actions .editar-btn img {
+    height: 30px;
+    width: 30px;
+    filter: invert(1);
+    transform: rotate(45deg);
+}   
+
+.box-dashboard .actions .excluir-btn img {
+    height: 30px;
+    width: 30px;
+    filter: invert(1);
+}
+
+.no-oracoes-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.suas-oracoes {
+    text-align: center;
+    color: white;
+    font-family: "Pixelify Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 28px;
+    text-shadow: 0px 0px 5px black;               
+}
+
+.sem-oracoes {
+    text-align: center;
+    color: white;
+    font-family: "Pixelify Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    text-shadow: 0px 0px 5px black;
+}
+
+
+
+.logout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 5px;
+    bottom: 10px;
+    padding: 10px 15px;
+    background-image: url('/assets/images/icons/background&btn&pixel&512x512.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.logout-btn img {
+    height: 30px;
+    width: 30px;
+    filter: invert(1);
+}
+
+.logout-btn:hover {
+    animation: pulsar2 1s steps(1) infinite;
+    opacity: 0.8;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}

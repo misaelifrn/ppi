@@ -86,20 +86,6 @@
             
             header("Location: index.php?action=dashboard");
             exit;
-
-            // $user = $this->userModel->searchForEmail($email);
-
-            // if ($user && password_verify($password, $user['password'])) {
-
-            //     $_SESSION['id_user'] = $user['id_user'];
-            //     $_SESSION['name'] = $user['name'];
-
-            //     header("Location: index.php?action=dashboard");
-            //     exit;
-            // }
-
-            // $error = "Email ou senha estão incorretos!";
-            // include __DIR__.'/../view/login.php';
         }
 
         public function dashboard() {

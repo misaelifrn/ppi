@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <p class="not-cadastro">Já é cadastrado? <a href="/index.php" class="a-cadastrar">Login</a>.</p> <!-- /../app/view/login.php -->>
+            <p class="not-cadastro">Já é cadastrado? <a href="/index.php" class="a-cadastrar">Login</a>.</p> <!-- /../app/view/login.php -->
         </div>
 
         <button type="submit">Cadastrar</button>

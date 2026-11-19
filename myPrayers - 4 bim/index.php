@@ -30,13 +30,13 @@
             $userController->logout();
             break;
 
-        // case 'criar':
-        //     $tarefaController->criar();
-        //     break;
+        case 'createOracao':
+            $oracaoController->create();
+            break;
 
-        // case 'excluir':
-        //     $tarefaController->excluir();
-        //     break;
+        case 'deleteOracao':
+            $oracaoController->delete();
+            break;
 
         // case 'editar':
         //     $tarefaController->editar();

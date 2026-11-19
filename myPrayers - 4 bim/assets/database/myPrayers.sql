@@ -58,19 +58,23 @@ VALUES (2, 'Oração de São Miguel Arcanjo', '
 São Miguel Arcanjo, defendei-nos no combate, sede nosso refúgio contra a maldade e as ciladas do demônio. Ordene-lhe Deus, instantemente o pedimos, e vós príncipe da milícia celeste, pelo Divino Poder, precipitai no inferno a Satanás e a todos os espíritos malignos, que andam pelo mundo para perder as almas. Amém.', '2026-09-11');
 
 INSERT INTO oracao (id_user, title, body, data_create)
-VALUES (6, 'Teste1', 'Teste1', '2026-09-17');
+VALUES (4, 'Oração de São Miguel Arcanjo', '
+São Miguel Arcanjo, defendei-nos no combate, sede nosso refúgio contra a maldade e as ciladas do demônio. Ordene-lhe Deus, instantemente o pedimos, e vós príncipe da milícia celeste, pelo Divino Poder, precipitai no inferno a Satanás e a todos os espíritos malignos, que andam pelo mundo para perder as almas. Amém.', '2026-09-11');
 
 INSERT INTO oracao (id_user, title, body, data_create)
-VALUES (6, 'Teste2', 'Teste2', '2026-09-17');
+VALUES (4, 'Title1', 'Body1', '2025-09-17');
 
 INSERT INTO oracao (id_user, title, body, data_create)
-VALUES (6, 'Teste3', 'Teste3', '2026-09-17');
+VALUES (4, 'Teste2', 'Teste2', '2025-09-17');
 
 INSERT INTO oracao (id_user, title, body, data_create)
-VALUES (6, 'Teste4', 'Teste4', '2026-09-17');
+VALUES (4, 'Teste3', 'Teste3', '2025-09-17');
 
 INSERT INTO oracao (id_user, title, body, data_create)
-VALUES (6, 'Teste5', 'Teste5', '2026-09-17');
+VALUES (4, 'Teste4', 'Teste4', '2025-09-17');
+
+INSERT INTO oracao (id_user, title, body, data_create)
+VALUES (4, 'Teste5', 'Teste5', '2025-09-17');
 
 -- php -r "echo password_hash('abc', PASSWORD_DEFAULT), PHP_EOL;"
 -- php -r "echo password_hash('AdMiN32.', PASSWORD_DEFAULT), PHP_EOL;"
