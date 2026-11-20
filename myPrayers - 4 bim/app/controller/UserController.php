@@ -94,7 +94,12 @@
                 exit;
             }
 
-            $oracoes = $this->oracaoModel->read($_SESSION['id_user']);
+            if (isset($_POST['filter_oracao']) && !empty(trim($_POST['filter_oracao']))) {
+                $oracoes = $this->oracaoModel->filterOracao($_SESSION['id_user'], trim($_POST['filter_oracao']));
+            } else {
+                $oracoes = $this->oracaoModel->read($_SESSION['id_user']);
+            }
+
             include __DIR__.'/../view/dashboard.php';
         }
 

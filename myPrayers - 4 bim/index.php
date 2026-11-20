@@ -22,9 +22,9 @@
             $userController->dashboard();
             break;
 
-        case 'delete':
-            $userController->delete();
-            break;
+        // case 'delete':
+        //     $userController->delete();
+        //     break;
 
         case 'logout':
             $userController->logout();
@@ -34,12 +34,16 @@
             $oracaoController->create();
             break;
 
+        case 'updateOracao':
+            $oracaoController->update();
+            break;
+
         case 'deleteOracao':
             $oracaoController->delete();
             break;
 
-        // case 'editar':
-        //     $tarefaController->editar();
+        // case 'filter_oracao':
+        //     $oracaoController->delete();
         //     break;
 
         default:

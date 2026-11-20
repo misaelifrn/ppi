@@ -31,6 +31,12 @@
             header("Location: index.php?action=dashboard");
         }
 
+        public function filterOracao() {
+            $this->oracaoModel->filterOracao($_SESSION['id_user'], $_POST['filter_oracao']);
+
+            header("Location: index.php?action=dashboard");
+        }
+
     }
 
 ?>

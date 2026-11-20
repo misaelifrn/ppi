@@ -31,7 +31,7 @@
         public function update($id_oracao, $id_user, $title, $body) {
             $sql = "UPDATE oracao SET title = ?, body = ? WHERE id_oracao = ? AND id_user = ?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("iiss", $id_oracao, $id_user, $title, $body);
+            $stmt->bind_param("ssii", $title, $body, $id_oracao, $id_user);
             return $stmt->execute();
         }
 
@@ -42,6 +42,16 @@
             return $stmt->execute();
         }
 
+        public function filterOracao($id_user, $filterOracao) {
+            $sql = "SELECT * FROM oracao WHERE id_user = ? AND (title LIKE ? OR body LIKE ?) ORDER BY data_create DESC"; // or
+            $stmt = $this->conn->prepare($sql);
+            $filterOracao = "%$filterOracao%";
+            $stmt->bind_param("iss", $id_user, $filterOracao, $filterOracao);
+            $stmt->execute();
+
+            $resultado = $stmt->get_result();
+            return $resultado->fetch_all(MYSQLI_ASSOC);
+        }
     }
 
 ?>
