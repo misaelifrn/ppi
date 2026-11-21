@@ -60,28 +60,23 @@ function closeUpdate() {
 }
 
 // let filterOracao = document.getElementById("filterOracao") // form;
-let filterOracaoInput = document.getElementById("filterOracaoInput");
-let filterOracaoBtn = document.getElementById("filterOracaoBtn");
-let clearFilter = document.getElementById("clearFilter");
+// let clearFilter = document.getElementById("clearFilter");
 
 // let isFilterOracaoBtnClicked = false;
-
-// filterOracaoInput.addEventListener("input", function () {
-//     if (filterOracaoInput.value.length == 0 && isFilterOracaoBtnClicked == false) {   
-//         filterOracaoBtn.style.opacity = 0.6;  
-//         filterOracaoBtn.style.pointerEvents = 'none'; 
-
-//         isFilterOracaoBtnClicked = true;
+let filterOracaoInput = document.getElementById("filterOracaoInput");
+let filterOracaoBtn = document.getElementById("filterOracaoBtn");
+function filtrarOracoes() {
+    if (filterOracaoInput.value.length == 0) {   
+        filterOracaoBtn.style.opacity = 0.6;  
+        filterOracaoBtn.style.pointerEvents = 'none'; 
         
-//         clearFilter.style.opacity = 1;  
-//         clearFilter.style.pointerEvents = 'auto';  
-//     } else {
-//         filterOracaoBtn.style.opacity = 1;  
-//         filterOracaoBtn.style.pointerEvents = 'auto'; 
+    } else {
+        filterOracaoBtn.style.opacity = 1;  
+        filterOracaoBtn.style.pointerEvents = 'auto'; 
+    }
+}
 
-//         isFilterOracaoBtnClicked = false;
-        
-//         clearFilter.style.opacity = 0.6;  
-//         clearFilter.style.pointerEvents = 'none';  
-//     }
-// });
+if (filterOracaoInput && filterOracaoBtn) {
+    filterOracaoInput.addEventListener("input", filtrarOracoes);
+    filtrarOracoes();
+}

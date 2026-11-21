@@ -9,11 +9,11 @@
 <body>
     <div class="bg-dark"></div>
 
-    <audio src="/assets/musics/Golden&Brown&X&Love&Story&-&Elliot&Sutton.mp3" autoplay id="audio"></audio> <!-- loop -->
+    <audio src="/assets/musics/Golden&Brown&X&Love&Story&-&Elliot&Sutton.mp3" id="audio"></audio> <!-- loop -->
     <button class="audio-btn" id="audioBtn"><img src="/../assets/images/icons/play.svg" alt="play.svg" id="imgAudioBtn"></button>
     <p class="audio-message" id="audioMessage"><img src="/../assets/images/icons/audio.svg" alt="audio.svg" class="audio-message-img" id="audioMessageImg"> Você está tocando <b>"Golden Brown x Love Story"</b>, de Ellito Sutton.</p>
 
-    <video src="/../assets/images/videos/video&background.mp4" autoplay muted class="video-bg" id="videoBg"></video>
+    <video src="/../assets/images/videos/video&background.mp4" muted class="video-bg" id="videoBg"></video>
 
     <div class="bg-dark-fah" id="bgDarkFah"></div>
     <img src="/../assets/images/fah.jpeg" alt="fah.jpeg" class="fah-img" id="fah">

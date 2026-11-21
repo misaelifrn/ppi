@@ -46,11 +46,11 @@
         }
 
         // ------------- CRIPTOGRAFAR A SENHA -------------
-        public function update($id_user, $name, $email, $password) {
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "UPDATE user SET name = ?, email = ?, password = ? WHERE id_user = ?";
+        public function update($id_user, $name, $email) {
+            // $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "UPDATE user SET name = ?, email = ? WHERE id_user = ?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("sssi", $id_user, $name, $email, $passwordHash);
+            $stmt->bind_param("ssi", $name, $email, $id_user);
             return $stmt->execute();
         }
 
@@ -69,7 +69,17 @@
             $stmt2->bind_param("i", $id_user);
 
             return $stmt2->execute();
+        }
 
+        public function filterUsers($filterUser) {
+            $sql = "SELECT id_user, name, email FROM user WHERE name LIKE ? OR email LIKE ? ORDER BY id_user ASC"; // or
+            $stmt = $this->conn->prepare($sql);
+            $filterUser = "%$filterUser%";
+            $stmt->bind_param("ss", $filterUser, $filterUser);
+            $stmt->execute();
+
+            $resultado = $stmt->get_result();
+            return $resultado->fetch_all(MYSQLI_ASSOC);
         }
 
     }

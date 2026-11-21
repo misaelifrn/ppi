@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+15&family=Momo+Trust+Display&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Redaction+35:ital,wght@0,400;0,700;1,400&family=Redaction+50:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap'); /* Momo Trust Display, Redaction 35, Redaction 50, Poppins, Pixelify Sans, Silkscreen, Jersey 10, Jersey 15 */
 
+@font-face {
+    font-family: "DS Digital";
+    src: url("/assets/fonts/ds&digital/DS-DIGIB.TTF") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 @keyframes pulsar {
     0% {
         transform: scale(1.2);
@@ -21,6 +28,18 @@
     }
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes relogio {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
@@ -254,10 +273,49 @@ body {
     scrollbar-width: none;
 }
 
+.box-dashboard-admin {
+    margin-top: 20px;
+}
+
 .box-dashboard ul {
     list-style: none;
     width: 100%;
 }
+
+/* .box-dashboard-admin ol {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.box-dashboard-admin ol li {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.box-dashboard-admin ol li:first-child {
+    border-right: 2px solid rgb(255, 255, 255, 0.5);
+}
+
+.box-dashboard-admin ol li:last-child {
+    border-left: 2px solid rgb(255, 255, 255, 0.5);
+}
+
+.box-dashboard-admin ol .id-li {
+    width: 10%;
+}
+
+.box-dashboard-admin ol .nome-li {
+    width: 50%;
+}
+
+.box-dashboard-admin ol .email-li {
+    width: 40%;
+} */
+
 
 .box-dashboard ul li {
     display: flex;
@@ -304,6 +362,20 @@ body {
     right: 10px; */
 }
 
+.box-dashboard .actions .show-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.box-dashboard .actions .show-btn img {
+    filter: invert(1);
+    height: 30px;
+    width: 30px;
+}
+
 .box-dashboard .actions .editar-btn {
     cursor: pointer;
     background: none;
@@ -322,6 +394,19 @@ body {
     width: 30px;
     filter: invert(1);
 }
+
+/* .box-dashboard-admin ul li .oracao-infor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.box-dashboard-admin ul li .oracao-infor .p-title-oracao {
+    border: none;
+    width: auto;
+} */
 
 .no-oracoes-box {
     display: flex;
@@ -347,6 +432,181 @@ body {
     text-shadow: 0px 0px 5px black;
 }
 
+.bg-dark-admin {
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.register-admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    height: 80%;
+    width: 50%;
+    z-index: 2;
+    padding: 10px 15px 15px 15px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border: 1px solid rgb(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.register-admin h2 {
+    color: black;
+    font-family: "Redaction 50", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    top: 20px;
+}
+
+.register-admin .input-container {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.register-admin .input-container .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+}
+
+.register-admin .input-container .input-box label {
+    font-size: 20px;
+    color: black;
+    font-family: "Redaction 50", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: text;
+}
+
+.register-admin .input-container .input-box input {
+    height: 40px;
+    padding: 0px 10px;
+    font-family: "Pixelify Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255, 0.5);
+    outline: none;
+    color: black;
+    border: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.register-admin .input-container .input-box .password-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}   
+
+.register-admin .input-container .input-box .password-box input {
+    width: 100%;
+}   
+
+.register-admin .input-container .input-box .password-box img {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    right: 10px;
+}   
+
+.register-admin h1 {
+    font-family: "Redaction 50", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    top: 80px;
+}
+
+.register-admin .actions-register-admin {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    bottom: 80px;
+}
+
+.register-admin .actions-register-admin button {
+    font-family: "Redaction 50", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    padding: 10px 30px;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+    background-color: black;
+    border-bottom: 3px solid gray;
+}
+
+.register-admin .actions-register-admin button:hover {
+    opacity: 0.8;
+}
+
+.register-admin .actions-register-admin button:active {
+    opacity: 0.8;
+    transform: scale(0.9);
+}
+
+.register-admin .actions-register-admin button:first-child:hover {
+    background-color: green;
+}
+
+.register-admin .actions-register-admin button:last-child:hover {
+    background-color: red;
+}
+
+.box-dashboard-admin table {
+    width: 100%;
+    color: white;
+    border-collapse: collapse;
+    border: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.box-dashboard-admin table tr:nth-of-type(2){
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.box-dashboard-admin table tr th {
+    padding: 5px 0px;
+}
+
+.box-dashboard-admin table tr .id-li {
+    width: 5%;
+}
+
+.box-dashboard-admin table tr .nome-li {
+    width: 50%;
+}
+
+.box-dashboard-admin table tr .email-li {
+    width: 45%;
+}
+
+.box-dashboard-admin table tr th, .box-dashboard-admin table tr td {
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.box-dashboard-admin table tr td {
+    padding: 0px 5px;
+}
+
+.box-dashboard-admin table tr td:first-child {
+    text-align: center;
+}
+
+.box-dashboard-admin table tr td:last-child {
+    padding: 0px 2px;
+}
 
 
 .logout-btn {
@@ -411,8 +671,8 @@ body {
 }
 
 .filter-oracao .filter-buttons button {
-    /* opacity: 0.6;
-    pointer-events: none; */
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .filter-oracao .filter-buttons button, .filter-oracao .filter-buttons a {
@@ -434,8 +694,8 @@ body {
 .filter-oracao .filter-buttons a {
     text-decoration: none;
     background: none;
-    /* cursor: not-allowed;  */
     background-color: transparent;
+    /* cursor: not-allowed;  */
     /* opacity: 0.6;
     pointer-events: none; */
 }
@@ -454,6 +714,30 @@ body {
     pointer-events: auto;
     cursor: pointer;
 } */
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: black;
+    border: 4px solid gray;
+    padding: 5px 10px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.clock p {
+    font-family: "DS Digital", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 24px;
+}
+
+.clock .points-hour {
+    animation: relogio 1s steps(1) infinite;
+}
 
 .visible {
     opacity: 1;

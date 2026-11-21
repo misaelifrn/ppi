@@ -43,7 +43,7 @@
     
     <div class="box-dashboard">
         <form action="index.php?action=dashboard" method="POST" class="filter-oracao" id="filterOracao">
-            <input type="search" name="filter_oracao" id="filterOracaoInput" placeholder="Filtrar orações...">
+            <input type="text" name="filter_oracao" id="filterOracaoInput" placeholder="Filtrar orações..." value="<?php echo htmlspecialchars($_POST['filter_oracao'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"> <!-- "??" == isset; ENT_QUOTES == quais aspas serão convertidas pelo htmlspecialchars; UTF-8 == tradução da linguagem (codificação) -->
             
             <div class="filter-buttons">
                 <button type="submit" id="filterOracaoBtn">

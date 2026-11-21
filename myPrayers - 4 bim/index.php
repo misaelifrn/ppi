@@ -17,14 +17,21 @@
         case 'register':
             $userController->register();
             break;
-
         case 'dashboard':
             $userController->dashboard();
             break;
-
-        // case 'delete':
-        //     $userController->delete();
-        //     break;
+        case 'admin':
+            $userController->dashboardAdmin();
+            break;
+        case 'registerAdmin':
+            $userController->registerAdmin();
+            break;
+        case 'updateAdmin':
+            $userController->updateAdmin();
+            break;
+        case 'deleteAdmin':
+            $userController->deleteAdmin();
+            break;
 
         case 'logout':
             $userController->logout();
